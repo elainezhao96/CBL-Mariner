@@ -12,14 +12,17 @@ import (
 
 // SystemConfig defines how each system present on the image is supposed to be configured.
 type SystemConfig struct {
-	Hostname              string                    `yaml:"Hostname"`
-	PackagesToAddLists    []string                  `yaml:"PackagesToAddLists"`
-	PackagesToAdd         []string                  `yaml:"PackagesToAdd"`
-	PackagesToRemoveLists []string                  `yaml:"PackagesToRemoveLists"`
-	PackagesToRemove      []string                  `yaml:"PackagesToRemove"`
-	AdditionalFiles       map[string]FileConfigList `yaml:"AdditionalFiles"`
-	PostInstallScripts    []Script                  `yaml:"PostInstallScripts"`
-	FinalizeImageScripts  []Script                  `yaml:"FinalizeImageScripts"`
+	Hostname                string                    `yaml:"Hostname"`
+	UpdateBaseImagePackages bool                      `yaml:"UpdateBaseImagePackages"`
+	PackagesToAddLists      []string                  `yaml:"PackagesToAddLists"`
+	PackagesToAdd           []string                  `yaml:"PackagesToAdd"`
+	PackagesToRemoveLists   []string                  `yaml:"PackagesToRemoveLists"`
+	PackagesToRemove        []string                  `yaml:"PackagesToRemove"`
+	PackagesToUpdateLists   []string                  `yaml:"PackagesToUpdateLists"`
+	PackagesToUpdate        []string                  `yaml:"PackagesToUpdate"`
+	AdditionalFiles         map[string]FileConfigList `yaml:"AdditionalFiles"`
+	PostInstallScripts      []Script                  `yaml:"PostInstallScripts"`
+	FinalizeImageScripts    []Script                  `yaml:"FinalizeImageScripts"`
 }
 
 func (s *SystemConfig) IsValid() error {
